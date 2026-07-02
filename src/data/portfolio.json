@@ -1,0 +1,67 @@
+{
+  "personalInfo": {
+    "name": "Attachaipengpit",
+    "role": "Senior Full Stack Developer",
+    "tagline": "Building Scalable & Impactful Solutions",
+    "about": "I am a highly motivated Senior Full Stack Developer with a passion for designing, developing, and architecting robust web applications. I thrive in environments where I can tackle complex problems, lead technical initiatives, and mentor team members.",
+    "email": "contact@example.com",
+    "github": "https://github.com/attachaipengpit",
+    "linkedin": "https://linkedin.com/in/attachaipengpit"
+  },
+  "techStack": [
+    {
+      "category": "Frontend",
+      "skills": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Redux"]
+    },
+    {
+      "category": "Backend",
+      "skills": ["Node.js", "Express", "NestJS", "Python", "GraphQL"]
+    },
+    {
+      "category": "Database & Cloud",
+      "skills": ["MongoDB", "PostgreSQL", "Redis", "Docker", "AWS", "GCP"]
+    }
+  ],
+  "experience": [
+    {
+      "id": 1,
+      "role": "Senior Full Stack Developer",
+      "company": "Tech Company",
+      "duration": "2021 - Present",
+      "description": "Led the development of scalable microservices, mentored junior developers, and improved system performance by 40%."
+    },
+    {
+      "id": 2,
+      "role": "Full Stack Developer",
+      "company": "Startup Inc.",
+      "duration": "2018 - 2021",
+      "description": "Developed and maintained multiple React applications, integrated with RESTful APIs, and set up CI/CD pipelines."
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "E-Commerce Microservices Platform",
+      "description": "A scalable e-commerce platform built with microservices architecture, featuring real-time inventory management and payment gateway integration.",
+      "tags": ["NestJS", "React", "PostgreSQL", "Docker", "AWS"],
+      "link": "https://github.com/attachaipengpit/ecommerce",
+      "liveUrl": "#"
+    },
+    {
+      "id": 2,
+      "title": "AI Task Manager",
+      "description": "An intelligent task management application that uses AI to prioritize daily tasks and predict project completion timelines.",
+      "tags": ["Next.js", "TypeScript", "Node.js", "MongoDB", "OpenAI"],
+      "link": "https://github.com/attachaipengpit/ai-task",
+      "liveUrl": "#"
+    },
+    {
+      "id": 3,
+      "title": "Real-time Collaboration Tool",
+      "description": "A web-based whiteboard for teams to collaborate in real-time, featuring WebSockets and Conflict-free Replicated Data Types (CRDTs).",
+      "tags": ["React", "Socket.io", "Express", "Redis"],
+      "link": "https://github.com/attachaipengpit/collab-board",
+      "liveUrl": "#"
+    }
+  ]
+}
