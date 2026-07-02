@@ -5,7 +5,7 @@
     "tagline": "Building Scalable & Impactful Solutions",
     "about": "I am a highly motivated Senior Full Stack Developer with a passion for designing, developing, and architecting robust web applications. I thrive in environments where I can tackle complex problems, lead technical initiatives, and mentor team members.",
     "email": "contact@example.com",
-    "github": "https://github.com/attachaipengpit",
+    "github": "https://github.com/attachai-pengpit-dev",
     "linkedin": "https://linkedin.com/in/attachaipengpit"
   },
   "techStack": [
@@ -44,7 +44,7 @@
       "title": "E-Commerce Microservices Platform",
       "description": "A scalable e-commerce platform built with microservices architecture, featuring real-time inventory management and payment gateway integration.",
       "tags": ["NestJS", "React", "PostgreSQL", "Docker", "AWS"],
-      "link": "https://github.com/attachaipengpit/ecommerce",
+      "link": "https://github.com/attachai-pengpit-dev/ecommerce",
       "liveUrl": "#"
     },
     {
@@ -52,7 +52,7 @@
       "title": "AI Task Manager",
       "description": "An intelligent task management application that uses AI to prioritize daily tasks and predict project completion timelines.",
       "tags": ["Next.js", "TypeScript", "Node.js", "MongoDB", "OpenAI"],
-      "link": "https://github.com/attachaipengpit/ai-task",
+      "link": "https://github.com/attachai-pengpit-dev/ai-task",
       "liveUrl": "#"
     },
     {
@@ -60,7 +60,7 @@
       "title": "Real-time Collaboration Tool",
       "description": "A web-based whiteboard for teams to collaborate in real-time, featuring WebSockets and Conflict-free Replicated Data Types (CRDTs).",
       "tags": ["React", "Socket.io", "Express", "Redis"],
-      "link": "https://github.com/attachaipengpit/collab-board",
+      "link": "https://github.com/attachai-pengpit-dev/collab-board",
       "liveUrl": "#"
     }
   ]

@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://attachaipengpit.github.io/portfolio-webapp",
+  "homepage": "https://attachai-pengpit-dev.github.io/portfolio-webapp",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
