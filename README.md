@@ -20,7 +20,7 @@ Personal portfolio web app built with React 19 and Vite, deployed to GitHub Page
 | Build tool | Vite 8 |
 | Icons | `lucide-react`, `react-icons` |
 | Linting | Oxlint |
-| Hosting | GitHub Pages via `gh-pages` |
+| Hosting | GitHub Pages via GitHub Actions |
 
 Plain CSS — no UI framework or CSS-in-JS.
 
@@ -43,11 +43,14 @@ The dev server prints a local URL (default http://localhost:5173).
 | `npm run build` | Production build into `dist/` |
 | `npm run preview` | Serve the built output locally |
 | `npm run lint` | Run Oxlint |
-| `npm run deploy` | Build, then publish `dist/` to the `gh-pages` branch |
+
+Because `base` is `/portfolio-webapp/`, `npm run preview` serves the app at http://localhost:4173/portfolio-webapp/ — the bare root will 404.
 
 ## Project structure
 
 ```
+.github/workflows/
+  deploy.yml       lint + build + publish to Pages on push to main
 public/            favicon and static icons
 src/
   App.jsx          all sections, hooks, and animation logic
@@ -56,7 +59,7 @@ src/
   data/
     portfolio.json single source of content
   assets/          hero image and logos
-vite.config.js     base: './' for GitHub Pages relative paths
+vite.config.js     base path for the GitHub Pages subpath
 ```
 
 ## Updating content
@@ -72,11 +75,11 @@ A few values live in [src/App.jsx](src/App.jsx) rather than the JSON: the `STATS
 
 ## Deployment
 
-```bash
-npm run deploy
-```
+Pushing to `main` is the deploy. [.github/workflows/deploy.yml](.github/workflows/deploy.yml) lints, builds, and publishes `dist/` straight to GitHub Pages — there is no `gh-pages` branch and nothing to run locally.
 
-`predeploy` builds automatically, then `gh-pages` pushes `dist/` to the `gh-pages` branch that GitHub Pages serves. `base: './'` in the Vite config keeps asset paths relative so the app works from the repository subpath.
+Repository setting this depends on: **Settings → Pages → Source = GitHub Actions**.
+
+`base: '/portfolio-webapp/'` in [vite.config.js](vite.config.js) matches the Pages subpath. If the repository is ever renamed, update it to match or every asset 404s.
 
 ## License
 
