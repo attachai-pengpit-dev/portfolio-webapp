@@ -1,16 +1,83 @@
-# React + Vite
+# Portfolio — Attachai Pengpit
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Personal portfolio web app built with React 19 and Vite, deployed to GitHub Pages.
 
-Currently, two official plugins are available:
+**Live site:** https://attachai-pengpit-dev.github.io/portfolio-webapp
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Single-page layout with sections for About, Experience, Education, Projects, and Contact
+- All content driven by one JSON file — no component edits needed to update the résumé
+- Typewriter role rotation, animated stat counters, and scroll reveal animations
+- Responsive layout with a mobile nav drawer
+- Respects `prefers-reduced-motion` (animations fall back to static content)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech stack
 
-## Expanding the Oxlint configuration
+| Area | Choice |
+| --- | --- |
+| Framework | React 19 |
+| Build tool | Vite 8 |
+| Icons | `lucide-react`, `react-icons` |
+| Linting | Oxlint |
+| Hosting | GitHub Pages via `gh-pages` |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Plain CSS — no UI framework or CSS-in-JS.
+
+## Getting started
+
+Requires Node.js 20.19+ (Vite 8 requirement).
+
+```bash
+npm install
+npm run dev
+```
+
+The dev server prints a local URL (default http://localhost:5173).
+
+## Scripts
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the Vite dev server with HMR |
+| `npm run build` | Production build into `dist/` |
+| `npm run preview` | Serve the built output locally |
+| `npm run lint` | Run Oxlint |
+| `npm run deploy` | Build, then publish `dist/` to the `gh-pages` branch |
+
+## Project structure
+
+```
+public/            favicon and static icons
+src/
+  App.jsx          all sections, hooks, and animation logic
+  App.css          component styles
+  index.css        design tokens and global resets
+  data/
+    portfolio.json single source of content
+  assets/          hero image and logos
+vite.config.js     base: './' for GitHub Pages relative paths
+```
+
+## Updating content
+
+Edit [src/data/portfolio.json](src/data/portfolio.json). It holds:
+
+- `personalInfo` — name, role, tagline, about text, email, phone, location, GitHub, LinkedIn
+- `techStack` — skill groups, each `{ category, skills[] }`
+- `experience` — roles with `duration`, `highlights[]`, and an optional `current: true` badge
+- `education`, `languages`, `interests`, `projects`
+
+A few values live in [src/App.jsx](src/App.jsx) rather than the JSON: the `STATS` counters and the `ROTATING_WORDS` typewriter list near the top of the file.
+
+## Deployment
+
+```bash
+npm run deploy
+```
+
+`predeploy` builds automatically, then `gh-pages` pushes `dist/` to the `gh-pages` branch that GitHub Pages serves. `base: './'` in the Vite config keeps asset paths relative so the app works from the repository subpath.
+
+## License
+
+Personal project — content and résumé data are not licensed for reuse.
