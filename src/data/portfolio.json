@@ -1,67 +1,116 @@
 {
   "personalInfo": {
-    "name": "Attachaipengpit",
+    "name": "Attachai Pengpit (Fluke)",
     "role": "Senior Full Stack Developer",
     "tagline": "Building Scalable & Impactful Solutions",
-    "about": "I am a highly motivated Senior Full Stack Developer with a passion for designing, developing, and architecting robust web applications. I thrive in environments where I can tackle complex problems, lead technical initiatives, and mentor team members.",
+    "about": "A results-driven Software Developer with over 7 years of experience specializing in full-stack development across C#, .NET, React, TypeScript, and Go. Proficient in designing scalable system architectures, optimizing application performance, and collaborating effectively within cross-functional Agile teams. Proven track record of delivering high-quality, efficient technical solutions for fintech and healthcare sectors.",
     "email": "attachai.pengpit.dev@gmail.com",
+    "phone": "+66 64 645 5282",
+    "location": "Sansai, Chiang Mai, Thailand",
     "github": "https://github.com/attachai-pengpit-dev",
-    "linkedin": "https://linkedin.com/in/attachaipengpit"
+    "linkedin": "https://www.linkedin.com/in/attachai-pengpit-0a7617261"
   },
   "techStack": [
     {
-      "category": "Frontend",
-      "skills": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Redux"]
+      "category": "Languages & Frameworks",
+      "skills": [
+        "C#",
+        ".NET",
+        "React",
+        "TypeScript",
+        "Go",
+        "Dart",
+        "JavaScript",
+        "Python",
+        "HTML",
+        "CSS"
+      ]
     },
     {
-      "category": "Backend",
-      "skills": ["Node.js", "Express", "NestJS", "Python", "GraphQL"]
+      "category": "Databases",
+      "skills": ["SQL Server", "MySQL", "PostgreSQL", "MongoDB"]
     },
     {
-      "category": "Database & Cloud",
-      "skills": ["MongoDB", "PostgreSQL", "Redis", "Docker", "AWS", "GCP"]
+      "category": "Tools & Technologies",
+      "skills": ["Visual Studio", "VS Code", "Git & GitHub", "Docker", "Jira"]
+    },
+    {
+      "category": "Development Practices",
+      "skills": [
+        "Software Architecture Design",
+        "API Integration",
+        "System Performance Tuning",
+        "Agile/Scrum",
+        "Multi-Agent AI Workflows"
+      ]
     }
   ],
   "experience": [
     {
       "id": 1,
       "role": "Senior Full Stack Developer",
-      "company": "Tech Company",
-      "duration": "2021 - Present",
-      "description": "Led the development of scalable microservices, mentored junior developers, and improved system performance by 40%."
+      "company": "Ocare Health Hub Co., Ltd.",
+      "location": "Chiang Mai",
+      "duration": "Dec 2025 - Present",
+      "current": true,
+      "highlights": [
+        "Design, develop, and maintain robust web and mobile applications for client hospitals using React, TypeScript, Go, and Dart.",
+        "Architected and deployed interactive, multi-page data visualization dashboards using Python to analyze complex demographic statistics and regional health trends.",
+        "Refactored core C# methods to optimize backend data processing workflows, significantly enhancing lab analytics rendering speeds and reducing server load.",
+        "Collaborate closely with cross-functional Agile teams to continuously deliver high-impact features and system enhancements."
+      ]
     },
     {
       "id": 2,
-      "role": "Full Stack Developer",
-      "company": "Startup Inc.",
-      "duration": "2018 - 2021",
-      "description": "Developed and maintained multiple React applications, integrated with RESTful APIs, and set up CI/CD pipelines."
-    }
-  ],
-  "projects": [
-    {
-      "id": 1,
-      "title": "E-Commerce Microservices Platform",
-      "description": "A scalable e-commerce platform built with microservices architecture, featuring real-time inventory management and payment gateway integration.",
-      "tags": ["NestJS", "React", "PostgreSQL", "Docker", "AWS"],
-      "link": "https://github.com/attachai-pengpit-dev/ecommerce",
-      "liveUrl": "#"
-    },
-    {
-      "id": 2,
-      "title": "AI Task Manager",
-      "description": "An intelligent task management application that uses AI to prioritize daily tasks and predict project completion timelines.",
-      "tags": ["Next.js", "TypeScript", "Node.js", "MongoDB", "OpenAI"],
-      "link": "https://github.com/attachai-pengpit-dev/ai-task",
-      "liveUrl": "#"
+      "role": "Senior Software Developer",
+      "company": "Heng Leasing and Capital Public Co., Ltd.",
+      "location": "Chiang Mai",
+      "duration": "Nov 2022 - Aug 2025",
+      "highlights": [
+        "Designed and engineered enterprise-grade software systems for insurance, financial, and micro-loan services.",
+        "Enhanced core system performance and optimized database queries to seamlessly support large-scale concurrent user operations and high-volume transactions.",
+        "Collaborated within Agile/Scrum frameworks to maintain a continuous, high-quality delivery pipeline while mentoring junior developers."
+      ]
     },
     {
       "id": 3,
-      "title": "Real-time Collaboration Tool",
-      "description": "A web-based whiteboard for teams to collaborate in real-time, featuring WebSockets and Conflict-free Replicated Data Types (CRDTs).",
-      "tags": ["React", "Socket.io", "Express", "Redis"],
-      "link": "https://github.com/attachai-pengpit-dev/collab-board",
-      "liveUrl": "#"
+      "role": "Software Developer",
+      "company": "Heng Leasing and Capital Public Co., Ltd.",
+      "location": "Chiang Mai",
+      "duration": "Jan 2019 - Oct 2022",
+      "highlights": [
+        "Developed scalable loan management systems and secure customer database platforms.",
+        "Utilized C#, .NET, SQL, and JavaScript to build web applications, console applications, and Windows Forms applications.",
+        "Contributed to system migration tasks and successful integration of third-party financial APIs."
+      ]
+    },
+    {
+      "id": 4,
+      "role": "Web Developer",
+      "company": "Prosoft Comtech Co., Ltd.",
+      "location": "Chiang Mai",
+      "duration": "Jun 2014 - Dec 2018",
+      "highlights": [
+        "Developed and maintained responsive corporate websites and web applications for diverse enterprise clients.",
+        "Designed intuitive UI/UX interfaces and conducted front-end performance tuning to ensure cross-browser stability and performance."
+      ]
     }
-  ]
+  ],
+  "education": [
+    {
+      "id": 1,
+      "degree": "Bachelor of Engineering in Computer Engineering",
+      "institution": "University of Phayao",
+      "location": "Phayao, Thailand",
+      "year": "2010 - 2013",
+      "honors": "Second-Class Honors",
+      "gpa": "3.43"
+    }
+  ],
+  "languages": [
+    { "name": "Thai", "level": "Native" },
+    { "name": "English", "level": "Pre-Intermediate" }
+  ],
+  "interests": ["Badminton", "Trail Running", "Gaming", "Cooking", "Wellness", "Psychology"],
+  "projects": []
 }

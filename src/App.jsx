@@ -8,30 +8,45 @@ import {
   ChevronRight,
   Briefcase,
   FolderOpen,
+  GraduationCap,
+  Award,
   Sparkles,
   ArrowUp,
   Menu,
   X,
   MapPin,
+  Phone,
+  Wrench,
+  Workflow,
+  Languages,
+  Heart,
 } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import portfolioData from './data/portfolio.json';
 import './App.css';
 
-const NAV_ITEMS = [
-  { id: 'about', label: 'About' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'projects', label: 'Projects' },
+const STATS = [
+  { value: 7, suffix: '+', label: 'Years Experience' },
+  { value: 4, suffix: '', label: 'Professional Roles' },
+  { value: 11, suffix: '', label: 'Technologies' },
 ];
 
-const STATS = [
-  { value: 6, suffix: '+', label: 'Years Experience' },
-  { value: 30, suffix: '+', label: 'Projects Shipped' },
-  { value: 40, suffix: '%', label: 'Performance Gained' },
-];
+/* "Attachai Pengpit (Fluke)" -> "AP" — skips nicknames in parentheses */
+const initials = (name) =>
+  name
+    .split(/\s+/)
+    .filter((w) => /^[A-Za-z]/.test(w))
+    .slice(0, 2)
+    .map((w) => w[0].toUpperCase())
+    .join('');
 
 /* Rotating role words shown under the hero title */
-const ROTATING_WORDS = ['Full Stack Developer', 'System Architect', 'Problem Solver', 'Team Mentor'];
+const ROTATING_WORDS = [
+  'Senior Full Stack Developer',
+  'C# / .NET Engineer',
+  'React & TypeScript Developer',
+  'System Architecture Designer',
+];
 
 function useTypewriter(words, { typeSpeed = 90, deleteSpeed = 45, pause = 1600 } = {}) {
   const [text, setText] = useState('');
@@ -108,8 +123,19 @@ function CountUp({ value, suffix = '' }) {
 }
 
 function App() {
-  const { personalInfo, techStack, experience, projects } = portfolioData;
+  const { personalInfo, techStack, experience, education, languages, interests, projects } =
+    portfolioData;
   const typed = useTypewriter(ROTATING_WORDS);
+  const hasProjects = projects.length > 0;
+
+  /* Projects section is dropped entirely until real ones exist */
+  const navItems = [
+    { id: 'about', label: 'About' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'education', label: 'Education' },
+    ...(hasProjects ? [{ id: 'projects', label: 'Projects' }] : []),
+  ];
+
   const [scrolled, setScrolled] = useState(false);
   const [progress, setProgress] = useState(0);
   const [activeSection, setActiveSection] = useState('');
@@ -150,7 +176,7 @@ function App() {
       },
       { rootMargin: '-45% 0px -50% 0px' }
     );
-    NAV_ITEMS.forEach(({ id }) => {
+    navItems.forEach(({ id }) => {
       const el = document.getElementById(id);
       if (el) spy.observe(el);
     });
@@ -159,6 +185,7 @@ function App() {
       reveal.disconnect();
       spy.disconnect();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   /* Cursor-following spotlight on glass cards */
@@ -170,14 +197,16 @@ function App() {
 
   const getIconForCategory = (category) => {
     switch (category) {
-      case 'Frontend':
+      case 'Languages & Frameworks':
         return <Code2 size={22} className="category-icon" />;
-      case 'Backend':
-        return <Terminal size={22} className="category-icon" />;
-      case 'Database & Cloud':
+      case 'Databases':
         return <Database size={22} className="category-icon" />;
+      case 'Tools & Technologies':
+        return <Wrench size={22} className="category-icon" />;
+      case 'Development Practices':
+        return <Workflow size={22} className="category-icon" />;
       default:
-        return <Code2 size={22} className="category-icon" />;
+        return <Terminal size={22} className="category-icon" />;
     }
   };
 
@@ -199,12 +228,12 @@ function App() {
       <nav className={`nav ${scrolled ? 'nav-scrolled' : ''}`}>
         <div className="container nav-content">
           <a href="#top" className="logo">
-            <span className="logo-mark">{personalInfo.name.slice(0, 2).toUpperCase()}</span>
+            <span className="logo-mark">{initials(personalInfo.name)}</span>
             <span className="logo-text">{personalInfo.name}</span>
           </a>
 
           <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
-            {NAV_ITEMS.map((item) => (
+            {navItems.map((item) => (
               <a
                 key={item.id}
                 href={`#${item.id}`}
@@ -335,8 +364,35 @@ function App() {
             <h3 className="section-title section-title-left">About Me</h3>
             <p className="about-text">{personalInfo.about}</p>
             <p className="about-meta">
-              <MapPin size={16} /> Remote friendly · Open to collaboration
+              <MapPin size={16} /> {personalInfo.location}
             </p>
+
+            <div className="about-extra">
+              <div className="extra-block">
+                <h5>
+                  <Languages size={16} /> Languages
+                </h5>
+                <div className="chip-row">
+                  {languages.map((lang) => (
+                    <span key={lang.name} className="chip">
+                      {lang.name} <em>{lang.level}</em>
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div className="extra-block">
+                <h5>
+                  <Heart size={16} /> Interests
+                </h5>
+                <div className="chip-row">
+                  {interests.map((item) => (
+                    <span key={item} className="chip">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
           <div className="tech-stack">
             {techStack.map((stack, idx) => (
@@ -378,21 +434,72 @@ function App() {
               className="timeline-item reveal"
               style={{ transitionDelay: `${idx * 120}ms` }}
             >
-              <div className="timeline-dot" />
+              <div className={`timeline-dot ${exp.current ? 'current' : ''}`} />
               <div className="timeline-content glass card spotlight" onMouseMove={handleCardMove}>
                 <div className="exp-header">
-                  <h4>{exp.role}</h4>
+                  <h4>
+                    {exp.role}
+                    {exp.current && <span className="now-tag">Now</span>}
+                  </h4>
                   <span className="exp-duration">{exp.duration}</span>
                 </div>
-                <h5 className="exp-company">{exp.company}</h5>
-                <p>{exp.description}</p>
+                <h5 className="exp-company">
+                  {exp.company}
+                  {exp.location && <em> · {exp.location}</em>}
+                </h5>
+                <ul className="exp-highlights">
+                  {exp.highlights.map((point, i) => (
+                    <li key={i}>{point}</li>
+                  ))}
+                </ul>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Projects */}
+      {/* Education */}
+      <section id="education" className="container">
+        <div className="section-head reveal">
+          <span className="eyebrow">
+            <GraduationCap size={14} /> Academic background
+          </span>
+          <h3 className="section-title">Education</h3>
+        </div>
+        <div className="education-list">
+          {education.map((edu, idx) => (
+            <div
+              key={edu.id}
+              className="edu-card glass card spotlight reveal"
+              style={{ transitionDelay: `${idx * 100}ms` }}
+              onMouseMove={handleCardMove}
+            >
+              <div className="edu-icon">
+                <GraduationCap size={26} />
+              </div>
+              <div className="edu-body">
+                <h4>{edu.degree}</h4>
+                <p className="edu-institution">
+                  {edu.institution}
+                  {edu.location && <em> · {edu.location}</em>}
+                </p>
+                <div className="edu-meta">
+                  <span className="edu-year">{edu.year}</span>
+                  {edu.honors && (
+                    <span className="edu-honor">
+                      <Award size={14} /> {edu.honors}
+                    </span>
+                  )}
+                  {edu.gpa && <span className="edu-gpa">GPA {edu.gpa}</span>}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Projects — rendered only when real entries exist in portfolio.json */}
+      {hasProjects && (
       <section id="projects" className="container">
         <div className="section-head reveal">
           <span className="eyebrow">
@@ -446,6 +553,7 @@ function App() {
           ))}
         </div>
       </section>
+      )}
 
       {/* Contact */}
       <section id="contact" className="container contact-section reveal">
@@ -472,6 +580,18 @@ function App() {
             >
               <FaLinkedin size={20} /> LinkedIn
             </a>
+          </div>
+
+          <div className="contact-details">
+            <a href={`mailto:${personalInfo.email}`}>
+              <Mail size={15} /> {personalInfo.email}
+            </a>
+            <a href={`tel:${personalInfo.phone.replace(/\s/g, '')}`}>
+              <Phone size={15} /> {personalInfo.phone}
+            </a>
+            <span>
+              <MapPin size={15} /> {personalInfo.location}
+            </span>
           </div>
         </div>
       </section>
